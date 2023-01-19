@@ -14,6 +14,8 @@
 		2A7081E329798C6A003A06EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A7081E229798C6A003A06EF /* Assets.xcassets */; };
 		2A7081E629798C6A003A06EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A7081E429798C6A003A06EF /* LaunchScreen.storyboard */; };
 		2A7081EF29798CBF003A06EF /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7081EE29798CBF003A06EF /* HomeVC.swift */; };
+		2A7081F229798E4C003A06EF /* CarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7081F129798E4C003A06EF /* CarViewModel.swift */; };
+		2A7081F82979901E003A06EF /* car_list.json in Resources */ = {isa = PBXBuildFile; fileRef = 2A7081F72979901E003A06EF /* car_list.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		2A7081E529798C6A003A06EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2A7081E729798C6A003A06EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A7081EE29798CBF003A06EF /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		2A7081F129798E4C003A06EF /* CarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarViewModel.swift; sourceTree = "<group>"; };
+		2A7081F72979901E003A06EF /* car_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = car_list.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 		2A7081D529798C69003A06EF /* Guidomia */ = {
 			isa = PBXGroup;
 			children = (
+				2A7081F629799007003A06EF /* Resources */,
+				2A7081F029798DC8003A06EF /* View Model */,
 				2A7081ED29798CA9003A06EF /* View Controllers */,
 				2A7081D629798C69003A06EF /* AppDelegate.swift */,
 				2A7081D829798C69003A06EF /* SceneDelegate.swift */,
@@ -76,6 +82,22 @@
 				2A7081EE29798CBF003A06EF /* HomeVC.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		2A7081F029798DC8003A06EF /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				2A7081F129798E4C003A06EF /* CarViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		2A7081F629799007003A06EF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2A7081F72979901E003A06EF /* car_list.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +160,7 @@
 			files = (
 				2A7081E629798C6A003A06EF /* LaunchScreen.storyboard in Resources */,
 				2A7081E329798C6A003A06EF /* Assets.xcassets in Resources */,
+				2A7081F82979901E003A06EF /* car_list.json in Resources */,
 				2A7081DE29798C69003A06EF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,6 +174,7 @@
 			files = (
 				2A7081E129798C69003A06EF /* Guidomia.xcdatamodeld in Sources */,
 				2A7081EF29798CBF003A06EF /* HomeVC.swift in Sources */,
+				2A7081F229798E4C003A06EF /* CarViewModel.swift in Sources */,
 				2A7081D729798C69003A06EF /* AppDelegate.swift in Sources */,
 				2A7081D929798C69003A06EF /* SceneDelegate.swift in Sources */,
 			);

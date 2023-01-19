@@ -6,24 +6,18 @@
 //
 
 import UIKit
+import Combine
 
 class HomeVC: UIViewController {
+    
+    private var cancellable: AnyCancellable?
+    let carViewModel = CarViewModel()
+    var carArr = [Car]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        cancellable = carViewModel.$carArr.sink(receiveValue: { items in
+            self.carArr = items
+        })
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
