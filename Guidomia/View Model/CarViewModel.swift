@@ -18,6 +18,7 @@ class CarViewModel: NSObject, ObservableObject {
         getData()
     }
     
+    //MARK: Getting data from database
     func getData() {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Car")
         request.returnsObjectsAsFaults = false
@@ -34,6 +35,7 @@ class CarViewModel: NSObject, ObservableObject {
         }
     }
     
+    //MARK: Reading data from JSON file
     func parseJSON() {
         do {
             if let bundlePath = Bundle.main.path(forResource: "car_list",
@@ -51,6 +53,7 @@ class CarViewModel: NSObject, ObservableObject {
         }
     }
     
+    //MARK: Saving data to Core Data
     func saveData(jsonArr: [[String:Any]]) {
         let entity = NSEntityDescription.entity(forEntityName: "Car", in: context)
         for dict in jsonArr {
@@ -67,7 +70,7 @@ class CarViewModel: NSObject, ObservableObject {
             if let customerPrice = dict["customerPrice"] as? Double {
                 car.customerPrice = customerPrice
             }
-            if let rating = dict["rating"] as? Int16 {
+            if let rating = dict["rating"] as? Double {
                 car.rating = rating
             }
             if let prosList = dict["prosList"] as? NSObject {
