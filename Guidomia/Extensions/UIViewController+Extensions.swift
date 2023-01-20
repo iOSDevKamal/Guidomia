@@ -11,7 +11,6 @@ var parentView = UIView()
 var mainAction: ((Int) -> Void)?
 
 extension UIViewController {
-    
     func dropDownMenu(sender:UIButton,options:[String], action: @escaping (Int) -> Void) {
         parentView.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         let dismissButton = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
@@ -62,7 +61,6 @@ extension UIViewController {
         mainView.layer.shadowOffset = CGSize.zero
         mainView.layer.shadowOpacity = 0.1
         mainView.layer.masksToBounds = false
-        
         for i in 0..<options.count {
             let button = UIButton.init(frame: CGRect.init(x: 16, y: 50 * i, width: (Int(maxWidth) - 32), height: 50))
             if i < options.count - 1 {
@@ -84,12 +82,12 @@ extension UIViewController {
         mainView.addSubview(scrollView)
         parentView.addSubview(mainView)
         self.view.addSubview(parentView)
-        mainView.subviews.map { $0.isHidden = true }
+        _ = mainView.subviews.map { $0.isHidden = true }
         mainView.frame = CGRect.init(x: (buttonLocation.origin.x) + 32, y: buttonLocation.origin.y, width: 0, height: 0)
         UIView.animate(withDuration: 0.2) {
             mainView.frame = CGRect.init(x: x, y: y, width: maxWidth, height: height)
         } completion: { succ in
-            mainView.subviews.map { $0.isHidden = false }
+            _ = mainView.subviews.map { $0.isHidden = false }
         }
         parentView.isHidden = false
     }

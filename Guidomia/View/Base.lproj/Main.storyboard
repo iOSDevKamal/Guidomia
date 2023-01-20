@@ -232,7 +232,7 @@
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aN9-fC-gE5">
                                                                             <rect key="frame" x="16" y="34" width="361" height="18"/>
                                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                                            <nil key="textColor"/>
+                                                                            <color key="textColor" name="Bullet Text Color"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cons" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufM-qS-cit">
@@ -247,7 +247,7 @@
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sqd-rB-7NL">
                                                                             <rect key="frame" x="16" y="102" width="361" height="18"/>
                                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                                            <nil key="textColor"/>
+                                                                            <color key="textColor" name="Bullet Text Color"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
@@ -415,6 +415,9 @@
     </designables>
     <resources>
         <image name="Tacoma" width="5472" height="3648"/>
+        <namedColor name="Bullet Text Color">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Dark Gray">
             <color red="0.5220000147819519" green="0.5220000147819519" blue="0.5220000147819519" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

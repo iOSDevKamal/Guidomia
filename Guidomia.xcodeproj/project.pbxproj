@@ -66,6 +66,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2A510043297A6AEE00BF30A8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2A7081DC29798C69003A06EF /* Main.storyboard */,
+				2A7081E429798C6A003A06EF /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		2A7081CA29798C69003A06EF = {
 			isa = PBXGroup;
 			children = (
@@ -87,16 +96,15 @@
 		2A7081D529798C69003A06EF /* Guidomia */ = {
 			isa = PBXGroup;
 			children = (
-				2A7081FC297A245E003A06EF /* Extensions */,
-				2A7081F92979A95D003A06EF /* Cells */,
-				2A7081F629799007003A06EF /* Resources */,
-				2A7081F029798DC8003A06EF /* View Model */,
 				2A7081ED29798CA9003A06EF /* View Controllers */,
+				2A7081F029798DC8003A06EF /* View Model */,
+				2A510043297A6AEE00BF30A8 /* View */,
+				2A7081F92979A95D003A06EF /* Cells */,
+				2A7081FC297A245E003A06EF /* Extensions */,
+				2A7081F629799007003A06EF /* Resources */,
 				2A7081D629798C69003A06EF /* AppDelegate.swift */,
 				2A7081D829798C69003A06EF /* SceneDelegate.swift */,
-				2A7081DC29798C69003A06EF /* Main.storyboard */,
 				2A7081E229798C6A003A06EF /* Assets.xcassets */,
-				2A7081E429798C6A003A06EF /* LaunchScreen.storyboard */,
 				2A7081E729798C6A003A06EF /* Info.plist */,
 				2A7081DF29798C69003A06EF /* Guidomia.xcdatamodeld */,
 			);

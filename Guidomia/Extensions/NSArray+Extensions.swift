@@ -12,8 +12,8 @@ extension NSArray {
         let str = NSMutableAttributedString()
         let arr = self.filter { ($0 as! String).trimmingCharacters(in: .whitespacesAndNewlines).count != 0 }
         for i in 0..<arr.count {
-            let tempStr = i == arr.count - 1 ? "\u{2981} " + "\(arr[i])" : "\u{2981} " + "\(arr[i]) \n\n"
             let bulletStr = "\u{2981}"
+            let tempStr = i == arr.count - 1 ? bulletStr + " " + "\(arr[i])" : bulletStr + " " + "\(arr[i]) \n\n"
             let range = (tempStr as NSString).range(of: bulletStr)
             let attribute = NSMutableAttributedString.init(string: tempStr)
             attribute.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.init(named: "Orange")! , range: range)

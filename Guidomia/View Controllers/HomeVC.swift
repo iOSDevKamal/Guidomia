@@ -10,21 +10,18 @@ import Combine
 
 class HomeVC: UIViewController {
     
-    private var cancellable: AnyCancellable?
-    let carViewModel = CarViewModel()
-    var carArr = [Car]()
-    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewHeightConstant: NSLayoutConstraint!
     
+    private var cancellable: AnyCancellable?
+    let carViewModel = CarViewModel()
+    var carArr = [Car]()
     var expandedCellIndex = 0
-    
     var makeStr = "" {
         didSet {
             self.carViewModel.filterCars(make: makeStr, model: modelStr)
         }
     }
-    
     var modelStr = "" {
         didSet {
             self.carViewModel.filterCars(make: makeStr, model: modelStr)
@@ -60,7 +57,7 @@ class HomeVC: UIViewController {
             self.expandedCellIndex = 0
             let value = makeArr[makeIndex]
             sender.setTitle(value, for: .normal)
-            self.makeStr = value == "Any make" ? "" : value
+            self.makeStr = makeIndex == 0 ? "" : value
         }
     }
     
@@ -72,7 +69,7 @@ class HomeVC: UIViewController {
             self.expandedCellIndex = 0
             let value = modelArr[modelIndex]
             sender.setTitle(value, for: .normal)
-            self.modelStr = value == "Any model" ? "" : value
+            self.modelStr = modelIndex == 0 ? "" : value
         }
     }
 }
@@ -111,8 +108,8 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         let consHeight = consStr.string.height(withConstrainedWidth: self.view.frame.width - 32, font: UIFont.systemFont(ofSize: 15))
         
         cell.detailsViewHeightConstant.constant = expandedCellIndex == indexPath.row ? 100 + prosHeight + consHeight : 0
-        cell.layoutIfNeeded()
         cell.dividerView.isHidden = indexPath.row == carArr.count - 1 ? true : false
+        cell.layoutIfNeeded()
         
         return cell
     }
