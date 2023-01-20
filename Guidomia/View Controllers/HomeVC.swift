@@ -110,13 +110,10 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         cell.consLbl.attributedText = consStr.string.count > 0 ? consStr : NSMutableAttributedString.init(string: "-")
         let consHeight = consStr.string.height(withConstrainedWidth: self.view.frame.width - 32, font: UIFont.systemFont(ofSize: 15))
         
-        if expandedCellIndex == indexPath.row {
-            cell.detailsViewHeightConstant.constant = 100 + prosHeight + consHeight
-        }
-        else {
-            cell.detailsViewHeightConstant.constant = 0
-        }
+        cell.detailsViewHeightConstant.constant = expandedCellIndex == indexPath.row ? 100 + prosHeight + consHeight : 0
         cell.layoutIfNeeded()
+        cell.dividerView.isHidden = indexPath.row == carArr.count - 1 ? true : false
+        
         return cell
     }
     
