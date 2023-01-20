@@ -15,6 +15,10 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var carPriceLbl: UILabel!
     @IBOutlet weak var carRatingView: CosmosView!
     
+    @IBOutlet weak var prosLbl: UILabel!
+    @IBOutlet weak var consLbl: UILabel!
+    @IBOutlet weak var detailsViewHeightConstant: NSLayoutConstraint!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

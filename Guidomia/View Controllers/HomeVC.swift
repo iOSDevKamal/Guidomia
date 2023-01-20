@@ -12,11 +12,12 @@ class HomeVC: UIViewController {
     
     private var cancellable: AnyCancellable?
     let carViewModel = CarViewModel()
-    let rowHeight = CGFloat(120)
     var carArr = [Car]()
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewHeightConstant: NSLayoutConstraint!
+    
+    var expandedCellIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +30,14 @@ class HomeVC: UIViewController {
         })
     }
     
+    override func viewWillLayoutSubviews() {
+        self.updateConstraints()
+    }
+    
     //MARK: Updating tableview height
     func updateConstraints() {
-        self.tableViewHeightConstant.constant = rowHeight * CGFloat(carArr.count)
         self.tableView.layoutIfNeeded()
+        self.tableViewHeightConstant.constant = tableView.contentSize.height
     }
 }
 
@@ -42,8 +47,12 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         return carArr.count
     }
     
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 220
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return rowHeight
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -54,6 +63,34 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         let carPrice = Int(car.marketPrice)/1000
         cell.carPriceLbl.text = "Price: \(carPrice)K"
         cell.carRatingView.rating = car.rating
+        
+        let prosArr = car.prosList as! NSArray
+        let prosStr = prosArr.convertArrToString()
+        cell.prosLbl.attributedText = prosStr.string.count > 0 ? prosStr : NSMutableAttributedString.init(string: "-")
+        let prosHeight = prosStr.string.height(withConstrainedWidth: self.view.frame.width - 32, font: UIFont.systemFont(ofSize: 15))
+        
+        let consArr = car.consList as! NSArray
+        let consStr = consArr.convertArrToString()
+        cell.consLbl.attributedText = consStr.string.count > 0 ? consStr : NSMutableAttributedString.init(string: "-")
+        let consHeight = consStr.string.height(withConstrainedWidth: self.view.frame.width - 32, font: UIFont.systemFont(ofSize: 15))
+        
+        if expandedCellIndex == indexPath.row {
+            cell.detailsViewHeightConstant.constant = 100 + prosHeight + consHeight
+        }
+        else {
+            cell.detailsViewHeightConstant.constant = 0
+        }
+        cell.layoutIfNeeded()
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let tempIndex = expandedCellIndex
+        expandedCellIndex = indexPath.row
+        self.tableView.reloadRows(at: [indexPath, IndexPath.init(row: tempIndex, section: 0)], with: .automatic)
+        DispatchQueue.main.async {
+            self.updateConstraints()
+        }
+    }
 }
+
