@@ -15,17 +15,17 @@ class CarViewModel: NSObject, ObservableObject {
     
     override init() {
         super.init()
-        getData()
+        carArr = getData()
     }
     
     //MARK: Getting data from database
-    func getData() {
+    func getData() -> [Car] {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Car")
         request.returnsObjectsAsFaults = false
         do {
             let result = try context.fetch(request) as! [Car]
             if !result.isEmpty {
-                carArr = result
+                return result
             }
             else {
                 parseJSON()
@@ -33,6 +33,7 @@ class CarViewModel: NSObject, ObservableObject {
         } catch {
             print(error)
         }
+        return []
     }
     
     //MARK: Reading data from JSON file
@@ -83,10 +84,32 @@ class CarViewModel: NSObject, ObservableObject {
         DispatchQueue.main.async {
             do {
                 try self.context.save()
-                self.getData()
+                self.carArr = self.getData()
             }
             catch {
                 print(error)
+            }
+        }
+    }
+    
+    //MARK: Filter cars by make and model
+    func filterCars(make: String, model: String) {
+        let result = getData()
+        if make.isEmpty, model.isEmpty {
+            carArr = result
+        }
+        else {
+            if !make.isEmpty, !model.isEmpty {
+                carArr = result.filter { $0.make == make && $0.model == model }
+            }
+            else if !make.isEmpty, model.isEmpty {
+                carArr = result.filter { $0.make == make }
+            }
+            else if make.isEmpty, !model.isEmpty {
+                carArr = result.filter { $0.model == model }
+            }
+            else {
+                carArr = result
             }
         }
     }

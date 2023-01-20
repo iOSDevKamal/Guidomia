@@ -19,6 +19,18 @@ class HomeVC: UIViewController {
     
     var expandedCellIndex = 0
     
+    var makeStr = "" {
+        didSet {
+            self.carViewModel.filterCars(make: makeStr, model: modelStr)
+        }
+    }
+    
+    var modelStr = "" {
+        didSet {
+            self.carViewModel.filterCars(make: makeStr, model: modelStr)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         cancellable = carViewModel.$carArr.sink(receiveValue: { items in
@@ -38,6 +50,30 @@ class HomeVC: UIViewController {
     func updateConstraints() {
         self.tableView.layoutIfNeeded()
         self.tableViewHeightConstant.constant = tableView.contentSize.height
+    }
+    
+    //MARK: Filter cars by make
+    @IBAction func makeSelection(_ sender: UIButton) {
+        let result = carViewModel.getData()
+        let makeArr = ["Any make"] + result.map { $0.make! }
+        self.dropDownMenu(sender: sender, options: makeArr) { makeIndex in
+            self.expandedCellIndex = 0
+            let value = makeArr[makeIndex]
+            sender.setTitle(value, for: .normal)
+            self.makeStr = value == "Any make" ? "" : value
+        }
+    }
+    
+    //MARK: Filter cars by model
+    @IBAction func modelSelection(_ sender: UIButton) {
+        let result = carViewModel.getData()
+        let modelArr = ["Any model"] + result.map { $0.model! }
+        self.dropDownMenu(sender: sender, options: modelArr) { modelIndex in
+            self.expandedCellIndex = 0
+            let value = modelArr[modelIndex]
+            sender.setTitle(value, for: .normal)
+            self.modelStr = value == "Any model" ? "" : value
+        }
     }
 }
 

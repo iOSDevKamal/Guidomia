@@ -20,6 +20,8 @@
 		2A7081FB2979A96D003A06EF /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7081FA2979A96D003A06EF /* TableViewCell.swift */; };
 		2A7081FE297A2488003A06EF /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7081FD297A2488003A06EF /* String+Extensions.swift */; };
 		2A708200297A3228003A06EF /* NSArray+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7081FF297A3228003A06EF /* NSArray+Extensions.swift */; };
+		2A708202297A3ACE003A06EF /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A708201297A3ACE003A06EF /* UIView+Extensions.swift */; };
+		2A708204297A3BD2003A06EF /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A708203297A3BD2003A06EF /* UIViewController+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		2A7081FA2979A96D003A06EF /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		2A7081FD297A2488003A06EF /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		2A7081FF297A3228003A06EF /* NSArray+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSArray+Extensions.swift"; sourceTree = "<group>"; };
+		2A708201297A3ACE003A06EF /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		2A708203297A3BD2003A06EF /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		A88EB55056C453E5BBABE7CB /* Pods-Guidomia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Guidomia.release.xcconfig"; path = "Target Support Files/Pods-Guidomia/Pods-Guidomia.release.xcconfig"; sourceTree = "<group>"; };
 		B8440C46AB9C00C4B5D80663 /* Pods_Guidomia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Guidomia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3EE0FB690DB6A78534998F7 /* Pods-Guidomia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Guidomia.debug.xcconfig"; path = "Target Support Files/Pods-Guidomia/Pods-Guidomia.debug.xcconfig"; sourceTree = "<group>"; };
@@ -136,6 +140,8 @@
 			children = (
 				2A7081FD297A2488003A06EF /* String+Extensions.swift */,
 				2A7081FF297A3228003A06EF /* NSArray+Extensions.swift */,
+				2A708201297A3ACE003A06EF /* UIView+Extensions.swift */,
+				2A708203297A3BD2003A06EF /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -267,7 +273,9 @@
 			files = (
 				2A7081E129798C69003A06EF /* Guidomia.xcdatamodeld in Sources */,
 				2A7081FE297A2488003A06EF /* String+Extensions.swift in Sources */,
+				2A708204297A3BD2003A06EF /* UIViewController+Extensions.swift in Sources */,
 				2A7081EF29798CBF003A06EF /* HomeVC.swift in Sources */,
+				2A708202297A3ACE003A06EF /* UIView+Extensions.swift in Sources */,
 				2A7081F229798E4C003A06EF /* CarViewModel.swift in Sources */,
 				2A7081FB2979A96D003A06EF /* TableViewCell.swift in Sources */,
 				2A7081D729798C69003A06EF /* AppDelegate.swift in Sources */,
